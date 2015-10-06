@@ -23,16 +23,19 @@
         
 	<td class='list_tracks'>
 	  <dl>
-	    <dt><%= album.name %></dt>
-	    <dd>
+	    <dt><%= album.artist %> - <%= album.name %></dt>
+	    <li>
 	      <%= truncate strip_tags(album.tracks), length: 240 %>
-	    </dd>
+	    </li>
 	  </dl>
 	</td>
 
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='list_actions'>
+	  <%= link_to 'Show', album %><br/>
+	  <%= link_to 'Edit', edit_album_path(album) %><br/>
+	  <%= link_to 'Destroy', album, method: :delete, 
+	      data: { confirm: 'Are you sure?' } %>
+	</td>
       <% end %>
     <% end %>
   </tbody>

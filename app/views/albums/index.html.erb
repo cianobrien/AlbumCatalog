@@ -23,7 +23,7 @@
         
 	<td class='list_tracks'>
 	  <dl>
-	    <dt><%= album.name %></dt>
+	    <dt><%= album.artist %> - <%= album.name %></dt>
 	    <dd>
 	      <%= truncate strip_tags(album.tracks), length: 240 %>
 	    </dd>
