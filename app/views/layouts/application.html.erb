@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AlbumCatalog</title>
+  <title>AudioFile</title>
+	<div id="banner">
+	  <!--<%= image_tag("logo.png") %>-->
+	  <%= link_to @page_title || "AudioFile", href = "/"  %>
+	</div>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

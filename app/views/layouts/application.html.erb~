@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AlbumCatalog</title>
+  <title>AudioFile</title>
+	<div id="banner">
+	  <!--<%= image_tag("logo.png") %>-->
+	  <%= @page_title || "AudioFile" %>
+	</div>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= content_tag :body, class: controller.controller_name do %>
+  <%= yield %>
+<% end %>
 
 </body>
 </html>

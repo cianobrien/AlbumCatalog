@@ -2,12 +2,10 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>AudioFile</h1>
-
 <p>
-  <%= link_to 'New Album', new_album_path %>
+  <%= link_to 'Add Album', new_album_path %>
 </p>
 
 <% @albums.each do |album| %>
-    <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image'), album %>
+    <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image') title = album.name, album %>
 <% end %>
