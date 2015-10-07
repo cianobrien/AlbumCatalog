@@ -11,15 +11,15 @@
 
   <tbody>
   <td>
-    <%= image_tag(@album.image_url, class: 'list_image') %>
+    <%= image_tag(@album.image_url, size: "500x500", class: 'list_image') %>
   </td>
 
 <td class='list_tracks'>
 	  <dl>
-	    <br>
+	    <pre>
 	      <h3>Tracks:</h3>
 	      <%= @album.tracks %>
-	    </br>
+	    </pre>
 	  </dl>
 	</td>
 </table>
