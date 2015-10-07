@@ -14,15 +14,15 @@ class AlbumTest < ActiveSupport::TestCase
 	test "album year must be between 1900 and 2015" do
 	  album = albums(:one)
 
-	  album.year = -1980
+	  album.price = -1980
 	  assert album.invalid?
 	  assert album.errors[:year].any?
 
-	  album.year = 1800
+	  album.price = 1800
 	  assert album.invalid?
 	  assert album.errors[:year].any?
 
-	  album.year = 1980
+	  album.price = 1980
 	  assert album.valid?
 	  assert album.errors[:year].none?
 	end

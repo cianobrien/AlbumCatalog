@@ -7,9 +7,4 @@ one:
   year: 1999
   image_url: MyString.png
 
-two:
-  name: AnotherString
-  artist: AnotherString
-  tracks: MyText
-  year: 2001
-  image_url: MyString.jpg
+

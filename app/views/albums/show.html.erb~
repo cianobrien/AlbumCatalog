@@ -16,10 +16,10 @@
 
 <td class='list_tracks'>
 	  <dl>
-	    <pre>
+	    <br>
 	      <h3>Tracks:</h3>
 	      <%= @album.tracks %>
-	    </pre>
+	    </br>
 	  </dl>
 	</td>
 </table>

@@ -16,7 +16,6 @@ pre {
   background-color: #fff;
   padding: 10px;
   font-size: 11px;
-  white-space: pre-line;
 }
 
 a {
