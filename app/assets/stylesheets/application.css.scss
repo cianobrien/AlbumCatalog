@@ -15,14 +15,47 @@
  */
 
 #banner {
-  background: #ff0000;
-  padding: 10px;
+  background: #aaa;
+  padding: 17px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
+  font: small-caps 40px/40px 'Poiret One', cursive;
   color: #000;
   text-align: center;
-
   img {
     float: left;
+  }
+}
+
+#columns {
+  background: #ddd;
+
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
+
+  #side {
+    float: left;
+    padding: 1em 2em;
+    width: 13em;
+    background: #ddd;
+    color: white;
+	
+    
+
+    ul {
+      padding: 2;
+      li {
+        list-style: none;
+        a {
+          color: #000;
+	  font-size: medium;
+	}
+	&:hover {
+          background-color: #eee;
+	}
+      }
+    }
   }
 }
