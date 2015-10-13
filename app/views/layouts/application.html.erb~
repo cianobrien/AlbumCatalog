@@ -9,7 +9,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' 		type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -17,14 +17,14 @@
   	<div id="columns">
 	  <div id="side">
 	    <ul>
-		<a href="/" style="text-decoration:none">Home</a>
+		<li><a href="/" style="text-decoration:none">Home</a></li>
 		<li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
 		<li><a href="http://www..../user" style="text-decoration:none">Your Profile</a></li>
 		<li><a href="http://www..../request" style="text-decoration:none">Request Edit</a></li>
 	    </ul>
 	  </div>
 	  <div id="main">
-	    <%= yield %>
+	    <%= yield  :footer %>
 	  </div>
 	</div>
 <% end %>

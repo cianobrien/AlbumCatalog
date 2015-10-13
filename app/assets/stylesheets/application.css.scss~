@@ -14,43 +14,71 @@
  *= require_self
  */
 
+body {
+  background: #232323;
+}
+
 #banner {
-  background: #aaa;
-  padding: 17px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px 'Poiret One', cursive;
+  a {
+    color: #fff;
+    margin-left: 2em;
+    }
+  background: #050505;
+	/*linear-gradient(#b2e0e0, #009999);*/
+  position: absolute;
+  height: 45px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  border-bottom: 2px solid #8c8c8c;
+  font: small-caps 40px/40px 'Ubuntu', sans-serif;
   color: #000;
-  text-align: center;
+  text-align: left;
   img {
     float: left;
   }
 }
 
-#columns {
-  background: #ddd;
-
+#columns {  
+  
   #main {
-    margin-left: 12em;
+    margin-left: 200px;
+    margin-top: 11em;
     padding: 1em;
-    background: white;
+    background: #232323;
+	/*#edfff9;*/
+	/*#c6a6c6, #5c005c; #99c2ba  #66ffcc*/
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    left: 0;
+    top: 0;
   }
 
   #side {
     float: left;
-    padding: 1em;
-    width: 10em;
-    background: #ddd;
-    color: white;
-	
-    
+    padding: 9em 2em;
+    color: #000;
 
+    background: #050505;
+	/*linear-gradient(to right, #009999, #b2e0e0);*/
+    border-right: 2px solid #000;
+    width: 120px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    
     ul {
-      padding: 2;
+      padding: 0;
       li {
         list-style: none;
         a {
-          color: #000;
-	  font-size: medium;
+          color: #8c8c8c;
+	  font-size: large;
 	}
 	&:hover {
           background-color: #eee;
@@ -59,3 +87,4 @@
     }
   }
 }
+

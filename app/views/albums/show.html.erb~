@@ -7,7 +7,6 @@
 
 <table>
 
-  <tbody>
   <td>
     <%= image_tag(@album.image_url, size: "400x400", class: 'list_image') %>
   </td>
@@ -15,7 +14,7 @@
 <td class='list_tracks'>
 	  <dl>
 	    <pre>
-	      <h3>Tracks:</h3>
+	      <h2>Tracks:</h2>
 	      <%= @album.tracks %>
 	    </pre>
 	  </dl>

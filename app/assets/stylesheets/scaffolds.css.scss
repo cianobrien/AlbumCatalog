@@ -12,8 +12,21 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
+h1{
+  color: #8c8c8c;
+}
+
+h2{
+  color: #8c8c8c;
+}
+
+h3{
+  color: #8c8c8c;
+}
+
 pre {
-  background-color: #fff;
+  background-color: #232323;
+  color: #8c8c8c;
   padding: 10px;
   font-size: 11px;
   white-space: pre-line;
@@ -32,6 +45,7 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+  color: #8c8c8c;
   }
 }
 

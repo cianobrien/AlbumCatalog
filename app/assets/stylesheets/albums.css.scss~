@@ -5,10 +5,14 @@
 .menu {
 
 	h1 {
-		margin: 150;
+		margin: 0;
 		padding-bottom: 0.5em;
 		font: 150% sans-serif;
-		color: #226;
+		color: #fff;
 		border-bottom: 3px dotted #77d;
 	}	
+}
+
+#list_tracks {
+  color: #fff;
 }

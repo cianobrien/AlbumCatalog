@@ -1,19 +1,16 @@
 // Place all the styles related to the menu controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.menu {
 
-	p {
-		margin: 20;
-	}
-
-	
-}
 
 .cover {
   position: relative;
   height: 150px;
   width: 150px;
+  padding: 1%;
+  img{
+    margin-bottom: 20px;
+  }
 }
 
 .imgDescription {
@@ -23,8 +20,9 @@
   bottom: 1;
   left: 0;
   right: 0;
-  background: #ccc;
+  background: #8c8c8c;
   color: #000;
+  margin-left: 10px;
 
 
   visibility: hidden;
