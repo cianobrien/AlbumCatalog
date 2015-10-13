@@ -12,18 +12,19 @@
 
 .cover {
   position: relative;
-  height: 200px;
-  width: 257px;
+  height: 150px;
+  width: 150px;
 }
 
 .imgDescription {
   position: absolute;
-  top: 0;
-  bottom: 100;
+  width: 150px;
+  top: 1;
+  bottom: 1;
   left: 0;
   right: 0;
-  background: #000;
-  color: #fff;
+  background: #aaa;
+  color: #000;
 
 
   visibility: hidden;
@@ -37,5 +38,5 @@
 
 .cover:hover .imgDescription {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.9;
 }
