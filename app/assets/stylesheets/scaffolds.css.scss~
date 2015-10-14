@@ -24,10 +24,6 @@ h3{
   color: #8c8c8c;
 }
 
-title{
-  font-size: 30px;
-}
-
 pre {
   background-color: #232323;
   color: #8c8c8c;

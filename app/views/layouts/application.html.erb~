@@ -24,7 +24,7 @@
 	    </ul>
 	  </div>
 	  <div id="main">
-	    <%= yield  :footer %>
+	    <%= yield %>
 	  </div>
 	</div>
 <% end %>

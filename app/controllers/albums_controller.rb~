@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = @albums = Album.order(:artist, :year)
+    @albums = Album.all
   end
 
   # GET /albums/1
