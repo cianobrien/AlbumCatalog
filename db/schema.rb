@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014134617) do
+ActiveRecord::Schema.define(version: 20151014135109) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20151014134617) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "album_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["album_id"], name: "index_line_items_on_album_id"
+  add_index "line_items", ["profile_id"], name: "index_line_items_on_profile_id"
 
   create_table "profiles", force: true do |t|
     t.string   "name"
