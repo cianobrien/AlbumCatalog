@@ -14,6 +14,8 @@
 <td class='list_tracks'>
 	  <dl>
 	    <pre>
+              <%= button_to 'Add to Profile', 
+		line_items_path(@album_id) %>
 	      <h3>Tracks:</h3>
 	      <%= @album.tracks %>
 	    </pre>

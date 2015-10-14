@@ -4,7 +4,6 @@ one:
   name: MyString
   profile_picture_url: MyString
 
-
 two:
   name: MyString
   profile_picture_url: MyString

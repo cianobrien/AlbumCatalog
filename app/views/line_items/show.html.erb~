@@ -5,6 +5,10 @@
   <%= image_tag(@line_item.album.image_url, size: "400x400", 			class: 'list_image') %>
 </p>
 
+<p>
+  <strong>Profile:</strong>
+  <%= @line_item.profile %>
+</p>
 
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
 <%= link_to 'Back', line_items_path %>

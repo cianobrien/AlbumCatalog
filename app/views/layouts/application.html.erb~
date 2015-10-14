@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AudioFile</title>
+  <title>AudioFiles</title>
 	<div id="banner">
 	  <!--<%= image_tag("logo.png") %>-->
-	  <a href="/" style="text-decoration:none"><%= @page_title || "AudioFile"%></a>
+	  <a href="/" style="text-decoration:none"><%= @page_title || "AudioFiles"%></a>
 	</div>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,7 +19,8 @@
 	    <ul>
 		<li><a href="/" style="text-decoration:none">Home</a></li>
 		<li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
-		<li><a href="http://www..../user" style="text-decoration:none">Your Profile</a></li>
+		<li><%= link_to 'Your Profile',
+			 @profile %></li>
 		<li><a href="http://www..../request" style="text-decoration:none">Request Edit</a></li>
 	    </ul>
 	  </div>

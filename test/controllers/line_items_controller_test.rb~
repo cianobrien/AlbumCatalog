@@ -21,7 +21,7 @@ class LineItemsControllerTest < ActionController::TestCase
       post :create, album_id: albums(:ruby)
     end
 
-    assert_redirected_to profile_path(assigns(:line_item).profile)
+    assert_redirected_to line_item_path(assigns(:line_item))
   end
 
   test "should show line_item" do

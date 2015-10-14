@@ -33,7 +33,7 @@
 <ul>    
   <% @profile.line_items.each do |item| %>
      <span class = "cover">
-    	<%= link_to image_tag(item.album.image_url, size: "150x150", 			class: 'list_image'), item %>
+    	<%= link_to image_tag(item.album.image_url, size: "150x150", 			class: 'list_image'), item.album %>
 	<span class="imgDescription"><%= item.album.artist %>:<br><%= 			item.album.name %></span>
      </span>
 
