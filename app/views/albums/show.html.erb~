@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @album.name %></h1>
+<h1><%= @album.nam %></h1>
+<h2><%= @album.artist %>, <%= @album.year %></h2>
 
-<h2><%= @album.artist %>, <%= Album.find(params[:album_id]) => <%= @album.year %></h2>
+
+
+<p class = links>
+  <%= link_to 'Add to Profile', line_items_path(@album_id), :method => :post %> 
+</p>
 
 
 <table>
@@ -14,8 +19,6 @@
 <td class='list_tracks'>
 	  <dl>
 	    <pre>
-              <%= button_to 'Add to Profile', 
-		line_items_path(@album_id) %>
 	      <h3>Tracks:</h3>
 	      <%= @album.tracks %>
 	    </pre>

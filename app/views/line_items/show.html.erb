@@ -1,10 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1><%= @line_item.album.name %></h1>
-  <%= image_tag(@line_item.album.image_url, size: "400x400", 			class: 'list_image') %>
+<h1><%= @line_item.album.name %></h1>
+<h2><%= @line_item.album.artist %>, <%= @line_item.album.year %></h2>
+
+
+<p class = links>
+  <%= link_to 'Change Rating', edit_line_item_path(@line_item) %> | 
+  <%= link_to 'Remove From Profile', @line_item, method: :delete %>
 </p>
 
 
-<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
-<%= link_to 'Back', line_items_path %>
+<table>
+<td>
+<%= image_tag(@line_item.album.image_url, size: "400x400", class: 'list_image') %>
+</td>
+
+<td class='list_tracks'>
+	  <dl>
+	    <pre>
+	      <h3>Tracks:</h3>
+	      <%= @line_item.album.tracks %>
+	    </pre>
+	  </dl>
+	</td>
+</table>

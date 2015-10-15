@@ -19,8 +19,7 @@
 	    <ul>
 		<li><a href="/" style="text-decoration:none">Home</a></li>
 		<li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
-		<li><%= link_to 'Your Profile',
-			 @profile %></li>
+		<li id="sidelink"><%= link_to "Your Profile", profile_path(Profile.find(session[:profile_id])) %></li>
 		<li><a href="http://www..../request" style="text-decoration:none">Request Edit</a></li>
 	    </ul>
 	  </div>
