@@ -31,7 +31,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.album, notice: @line_item.album.name + " was added to your profile."}
+        format.html { redirect_to "/", notice: @line_item.album.name + " was added to your profile."}
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

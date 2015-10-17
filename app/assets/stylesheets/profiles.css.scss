@@ -1,3 +1,60 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cover {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  padding: 1%;
+  img{
+    margin-bottom: 20px;
+  }
+}
+
+.imgDescription {
+  position: absolute;
+  width: 150px;
+  top: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #8c8c8c;
+  color: #000;
+  margin-left: 10px;
+  margin-bottom: 185px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.imglink {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  background: #000;
+  margin-left: 10px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover:hover .imglink {
+  visibility: visible;
+  opacity: 0.8;
+}

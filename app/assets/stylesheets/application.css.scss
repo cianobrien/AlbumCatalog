@@ -27,7 +27,7 @@ body {
 	/*linear-gradient(#b2e0e0, #009999);*/
   position: absolute;
   height: 45px;
-  z-index: 1;
+  z-index: -1;
   top: 0;
   left: 0;
   right: 0;
@@ -51,7 +51,7 @@ body {
 	/*#edfff9;*/
 	/*#c6a6c6, #5c005c; #99c2ba  #66ffcc*/
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     right: 0;
     left: 0;
     top: 0;
@@ -67,7 +67,7 @@ body {
     border-right: 2px solid #000;
     width: 120px;
     position: fixed;
-    z-index: 0;
+    z-index: -2;
     top: 0;
     left: 0;
     bottom: 0;

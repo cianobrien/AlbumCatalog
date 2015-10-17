@@ -9,7 +9,7 @@
   width: 150px;
   padding: 1%;
   img{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 
@@ -17,24 +17,45 @@
   position: absolute;
   width: 150px;
   top: 1;
-  bottom: 1;
+  bottom: 0;
   left: 0;
   right: 0;
   background: #8c8c8c;
   color: #000;
   margin-left: 10px;
+  margin-bottom: 180px;
 
 
   visibility: hidden;
   opacity: 0;
-
-  /*remove comment if you want a gradual transition between states
-  -webkit-transition: visibility opacity 0.2s;
-  */
 }
 
 
 .cover:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.imglink {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  background: #000;
+  margin-left: 10px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover:hover .imglink {
   visibility: visible;
   opacity: 0.8;
 }

@@ -1,0 +1,1 @@
+<li id="sidelink"><%= link_to "Your Profile", profile_path(Profile.find(session[:profile_id])) %></li>

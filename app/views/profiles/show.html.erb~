@@ -30,15 +30,16 @@
 
 <h2>Your Album List:</h2>
 
-<ul>    
-  <% @profile.line_items.each do |item| %>
-     <span class = "cover">
-    	<%= link_to image_tag(item.album.image_url, size: "150x150", 			class: 'list_image'), item.album %>
-	<span class="imgDescription"><%= item.album.artist %>:<br><%= 			item.album.name %></span>
-     </span>
+   
+<% @profile.line_items.each do |item| %>
+	<span class = "cover"><%= link_to image_tag(item.album.image_url, size: "150x150", class: 'list_image'), item %>
+		<span class="imgDescription"><%= item.album.artist %>:<br><%= item.album.name %>
+		</span>
+		<span class="imglink"><%= link_to 'Remove from Profile', @profile.line_item, method: :delete %>
+		</span>
+	</span>
 
-  <% end %>
-</ul>
+<% end %>
 
 
 
