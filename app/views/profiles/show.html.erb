@@ -6,6 +6,9 @@
   <h1><%= @profile.name %></h1>
 </p>
 
+<p class = links>
+<%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+</p>
 
 <table>
 
@@ -23,14 +26,16 @@
 	</td>
 </table>
 
-<%= link_to 'Edit Profile', edit_profile_path(@profile) %>
 
 <br>
 <br>
 
-<h2>Your Album List:</h2>
+<center><h2><%= @profile.name %>'s Album List:</h2></center>
 
-   
+<br>
+<br>
+<br>
+<br>   
 <% @profile.line_items.each do |item| %>
 	<span class = "cover"><%= link_to image_tag(item.album.image_url, size: "150x150", class: 'list_image'), item %>
 		<span class="imgDescription"><%= item.album.artist %>:<br><%= item.album.name %>

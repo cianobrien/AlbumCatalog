@@ -6,6 +6,9 @@
   <h1><%= @profile.name %></h1>
 </p>
 
+<p class = links>
+<%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+</p>
 
 <table>
 
@@ -17,25 +20,29 @@
 	  <dl>
 	    <pre>
 	      <h2>Bio:</h2>
-	      @profile.bio
+	      as;dlfkjas;ldkfja;slkdfj;alskdjf;alskdjf;alskdjf;asldkfj;asldkjf
+asdlfkjas;ldkfj;asldkjfa;sldkfjasd
+asd;lfkjasd;lfkjasd;flkjsad;lfkjasd
 	    </pre>
 	  </dl>
 	</td>
 </table>
 
-<%= link_to 'Edit Profile', edit_profile_path(@profile) %>
 
 <br>
 <br>
 
-<h2>Your Album List:</h2>
+<center><h2><%= @profile.name %>'s Album List:</h2></center>
 
-   
+<br>
+<br>
+<br>
+<br>   
 <% @profile.line_items.each do |item| %>
 	<span class = "cover"><%= link_to image_tag(item.album.image_url, size: "150x150", class: 'list_image'), item %>
 		<span class="imgDescription"><%= item.album.artist %>:<br><%= item.album.name %>
 		</span>
-		<span class="imglink"><%= link_to 'Remove from Profile', @profile.line_item, method: :delete %>
+		<span class="imglink"><%= link_to 'Remove from Profile', item, method: :delete %>
 		</span>
 	</span>
 

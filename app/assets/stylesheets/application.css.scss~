@@ -18,10 +18,6 @@ body {
   background: #232323;
 }
 
-.imgDescription {
-  z-index: 2;
-}
-
 #banner {
   a {
     color: #fff;
@@ -48,6 +44,10 @@ body {
 #columns {  
   
   #main {
+    
+    #extrapadding {
+      margin-top: 15em;
+    }
     margin-left: 200px;
     margin-top: 11em;
     padding: 1em;

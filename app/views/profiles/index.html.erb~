@@ -1,27 +1,21 @@
-<h1>Listing profiles</h1>
+<h1>AudioPHiles</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Profile picture url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.profile_picture_url %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td>
+        <%= link_to image_tag(profile.profile_picture_url, size: "100x150", class: 'list_image'), profile %>
+      </td>
+	<td>
+	  <dl>
+	    <pre>
+	      <h3><%= profile.name %></h3>
+	    </pre>
+	  </dl>
+	</td>
+</table>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Profile', new_profile_path %>

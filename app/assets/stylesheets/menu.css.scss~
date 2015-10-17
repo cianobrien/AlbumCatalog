@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#extrapadding {
+  position: fixed;
+  top: 1;
+  bottom: 1;
+  margin-top: 15em;
+}
+
 .cover {
   position: relative;
   height: 150px;
@@ -23,7 +30,7 @@
   background: #8c8c8c;
   color: #000;
   margin-left: 10px;
-  margin-bottom: 180px;
+  margin-bottom: 185px;
 
 
   visibility: hidden;
