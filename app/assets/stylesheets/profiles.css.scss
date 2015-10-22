@@ -5,7 +5,7 @@
 .bio{
   position: absolute;
   top: 0;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .cover {
@@ -20,13 +20,14 @@
 
 .imgDescription {
   position: absolute;
-  width: 150px;
+  width: 148px;
   top: 1;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #8c8c8c;
-  color: #000;
+  background: #050505;
+  color: #fff;
+  border: 1px solid #8c8c8c;
   margin-left: 10px;
   margin-bottom: 185px;
 
@@ -62,5 +63,5 @@
 
 .cover:hover .imglink {
   visibility: visible;
-  opacity: 0.8;
+  opacity: 1;
 }

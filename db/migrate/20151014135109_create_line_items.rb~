@@ -3,7 +3,6 @@ class CreateLineItems < ActiveRecord::Migration
     create_table :line_items do |t|
       t.references :album, index: true
       t.references :profile, index: true
-      t.decimal :price, precision: 8, scale: 2
 
       t.timestamps
     end

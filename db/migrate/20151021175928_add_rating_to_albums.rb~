@@ -1,0 +1,6 @@
+class AddRatingToAlbums < ActiveRecord::Migration
+  def change
+    add_column :albums, :rating, :decimal, default: 0
+    t.decimal :rating, precision: 8, scale: 1
+  end
+end

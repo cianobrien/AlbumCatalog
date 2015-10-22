@@ -17,12 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :bio %><br>
-    <%= f.text_field :bio %>
+    <%= f.text_area :bior, rows: 6 %>
   </div>
   <div class="field">
     <%= f.label :profile_picture_url %><br>
     <%= f.text_field :profile_picture_url %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -10,6 +10,17 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @profile = Profile.find(session[:profile_id])
+    amount = 0
+    @album.line_items.each do |item|
+      if item.rating > 0;
+        amount += 1
+        @album.rating += item.rating
+      end
+    end
+    if @album.rating > 0;
+      @album.rating /= amount
+    end
   end
 
   # GET /albums/new

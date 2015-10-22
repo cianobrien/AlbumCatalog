@@ -2,11 +2,17 @@
 
 <h1><%= @album.name %></h1>
 <h2><%= @album.artist %>, <%= @album.year %></h2>
-
+<% if @album.rating > 0 %>
+  <h3>Average Rating: <%= @album.rating.round(1) %>
+<% end %>
 
 
 <p class = links>
-  <%= link_to 'Add to Profile', line_items_path(album_id: @album), :method => :post %> 
+  <% if @album.entered?(@profile) %>
+    <%= link_to 'Remove from Profile', @album.find_line_item, :method => :delete %> 
+  <% else %>
+    <%= link_to 'Add to Profile', line_items_path(album_id: @album), :method => :post %> 
+  <% end %>
 </p>
 
 
