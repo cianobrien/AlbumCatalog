@@ -1,10 +1,12 @@
 class AlbumsController < ApplicationController
+  include CurrentProfile
+  before_action :set_profile
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = @albums = Album.order(:artist, :year)
+    @albums = Album.order(:artist, :year)
   end
 
   # GET /albums/1

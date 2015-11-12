@@ -9,7 +9,7 @@
 
 <p class = links>
   <% if @album.entered?(@profile) %>
-    <%= link_to 'Remove from Profile', @album.find_line_item, :method => :delete %> 
+    <%= link_to 'Remove from Profile', "/", :method => :delete %> 
   <% else %>
     <%= link_to 'Add to Profile', line_items_path(album_id: @album), :method => :post %> 
   <% end %>

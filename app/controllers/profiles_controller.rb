@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  include CurrentProfile
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles

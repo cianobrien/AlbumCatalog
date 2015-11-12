@@ -1,7 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-</html>
+
+menu controller
+
+	@profile = Profile.find(session[:profile_id])
+
+browse
+album.find_line_item(@current_profile), :method => :delete
+
+application
+
+/line_items.index
+############
 <h1>Listing line_items</h1>
 
 <table>
@@ -30,4 +39,4 @@
 <br>
 
 <%= link_to 'New Line item', new_line_item_path %>
-
+##########

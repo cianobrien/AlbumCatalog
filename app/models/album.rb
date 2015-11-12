@@ -20,12 +20,10 @@ class Album < ActiveRecord::Base
     end
   end
 
-  def find_line_item
-    line_items.each do |item|
+  def find_line_item(prof)
+    prof.line_items.each do |item|
       if item.album.id == self.id
-        if item.profile.id == :profile_id
-          item
-        end
+        item
       end
     end
   end

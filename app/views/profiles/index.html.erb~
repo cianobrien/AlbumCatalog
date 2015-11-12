@@ -1,10 +1,11 @@
-<h1>AudioPHiles</h1>
+<h1>AudioPhiles</h1>
 
 <table>
   <tbody>
     <% @profiles.each do |profile| %>
         <td>
         <%= link_to image_tag(profile.profile_picture_url, size: "100x150", class: 'list_image'), profile %>
+        <%= link_to 'Delete', profile, method: :delete %>
       </td>
 	<td>
 	  <dl>

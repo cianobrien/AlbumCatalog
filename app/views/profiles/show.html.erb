@@ -6,10 +6,18 @@
   <h1><%= @profile.name %></h1>
 </p>
 
-<% if @profile.name == Profile.find(session[:profile_id]).name %>
+<% if @profile.id == session[:profile_id] %>
   <p class = links>
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </p>
+<% else %>
+  <% if @profile.friends?(Profile.find(session[:profile_id])) %>
+    "Friends"
+  <% else %>
+    <p class = links>
+      <%= link_to 'Add Friend', friendships_path(:profile_2 => @profile), :method => :post %>
+    </p>
+  <% end %>
 <% end %>
 
 <table>
@@ -32,26 +40,32 @@
 <br>
 <br>
 
-<center><h2><%= @profile.name %>'s Album List:</h2></center>
+
+<% if @profile.id == session[:profile_id] %>
+  <center><h2>Your Album List:</h2></center>
+<% else %>
+  <center><h2><%= @profile.name %>'s Album List:</h2></center>
+<% end %>
+
 
 <br>
 <br>
 <br>
 <br>
    
-<% @profile.line_items.order(:rating).reverse.each do |item| %>
-	<span class = "cover"><%= link_to image_tag(item.album.image_url, size: "150x150", class: 'list_image'), item %>
-		<span class="imgDescription">
-			<% if item.rating > 0 %>
-				<%= item.album.artist %>:<br><%= item.album.name %> (<%= item.rating.round(1) %>)
-			<% else %>
-				<%= item.album.artist %>:<br><%= item.album.name %>
-			<% end %>
-		</span>
-		<span class="imglink"><%= link_to 'Remove from Profile', item, method: :delete %>
-		</span>
-	</span>
-
+<% @profile.line_items.order(:rating).reverse.each do |line_item| %>
+  <span class = "cover"><%= link_to image_tag(line_item.album.image_url, size: "150x150", class: 'list_image'), line_item %>
+    <span class="imgDescription">
+      <% if line_item.rating > 0 %>
+	<%= line_item.album.artist %>:<br><%= line_item.album.name %> (<%= line_item.rating.round(1) %>)
+      <% else %>
+	<%= line_item.album.artist %>:<br><%= line_item.album.name %>
+      <% end %>
+    </span>
+    <% if @profile.id == session[:profile_id] %>
+      <span class="imglink"><%= link_to 'Remove from Profile', line_item, method: :delete %></span>
+    <% end %>
+  </span>
 <% end %>
 
 

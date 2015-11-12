@@ -1,0 +1,12 @@
+  <span class = "cover"><%= link_to image_tag(line_item.album.image_url, size: "150x150", class: 'list_image'), line_item %>
+    <span class="imgDescription">
+      <% if line_item.rating > 0 %>
+	<%= line_item.album.artist %>:<br><%= line_item.album.name %> (<%= line_item.rating.round(1) %>)
+      <% else %>
+	<%= line_item.album.artist %>:<br><%= line_item.album.name %>
+      <% end %>
+    </span>
+    <% if @profile.id == session[:profile_id] %>
+      <span class="imglink"><%= link_to 'Remove from Profile', line_item, method: :delete %></span>
+    <% end %>
+  </span>

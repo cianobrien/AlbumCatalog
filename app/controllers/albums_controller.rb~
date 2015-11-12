@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_album
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = @albums = Album.order(:artist, :year)
+    @albums = Album.order(:artist, :year)
   end
 
   # GET /albums/1
@@ -15,11 +16,11 @@ class AlbumsController < ApplicationController
     @album.line_items.each do |item|
       if item.rating > 0;
         amount += 1
-        album.rating += item.rating
+        @album.rating += item.rating
       end
     end
-    if album.rating > 0;
-      album.rating /= amount
+    if @album.rating > 0;
+      @album.rating /= amount
     end
   end
 

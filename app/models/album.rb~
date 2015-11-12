@@ -20,12 +20,10 @@ class Album < ActiveRecord::Base
     end
   end
 
-  def find_line_item
-    line_items.each do |item|
-      if item.album.id == self.id
-        if item.profile.id == Profile.find(session[:profile_id])
-          item
-        end
+  def find_line_item(profid)
+    self.line_items.each do |item|
+      if item.profile.id == profid
+        item
       end
     end
   end

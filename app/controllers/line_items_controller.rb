@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentProfile
-  before_action :set_profile, only: [:create]
+  before_action :set_profile
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -27,11 +27,12 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     album = Album.find(params[:album_id])
-    @line_item = @profile.line_items.build(album: album)
+    @line_item = @current_profile.line_items.build(album: album)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to "/", notice: @line_item.album.name + " was added to your profile."}
+        format.html { redirect_to @line_item.album, notice: @line_item.album.name + " was added to your profile."}
+        format.js
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

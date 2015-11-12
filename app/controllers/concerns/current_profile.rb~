@@ -7,6 +7,6 @@ module CurrentProfile
       @current_profile = Profile.find(session[:profile_id])
     rescue ActiveRecord::RecordNotFound
       @current_profile = Profile.create
-      session[:profile_id] = @current_profile.id
+      session[:profile_id] = @profile.id
   end
 end

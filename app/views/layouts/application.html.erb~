@@ -14,21 +14,22 @@
 <body>
 
 <%= content_tag :body, class: controller.controller_name do %>
-  	<div id="columns">
-	  <div id="side">
-	    <ul>
-		<li><a href="/" style="text-decoration:none">Home</a></li>
-                <li id="sidelink"><%= link_to "Your AudioFile", profile_path(Profile.find(session[:profile_id])) %></li>
-		<li id="sidelink"><%= link_to "AudioPhiles", "/profiles" %></li>
-<br>
-		<li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
-		<li><a href="http://www..../request" style="text-decoration:none">Request Edit</a></li>
-	    </ul>
-	  </div>
-	  <div id="main">
-	    <%= yield %>
-	  </div>
-	</div>
+<div id="columns">
+  <div id="side">
+    <ul>
+      <li id="sidelink"><%= link_to "Home", "/" %></li>
+      <li id="sidelink"><%= link_to "AudioPhiles", "/profiles" %></li>
+      <li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
+      </br>
+      <% if session[:profile_id] %>
+        <li id="sidelink"><%= link_to "Your AudioFile", profile_path(session[:profile_id]) %></li>
+      <% end %>	
+    </ul>
+  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
+</div>
 <% end %>
 
 </body>
