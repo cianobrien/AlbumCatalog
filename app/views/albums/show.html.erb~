@@ -9,7 +9,7 @@
 
 <p class = links>
   <% if @album.entered?(@profile) %>
-    <%= link_to 'Remove from Profile', @album.find_line_item(@current_profile), method: :delete %>
+    Added to Profile
   <% else %>
     <%= link_to 'Add to Profile', line_items_path(album_id: @album), :method => :post %> 
   <% end %>
@@ -30,4 +30,28 @@
 	    </pre>
 	  </dl>
 	</td>
+</table>
+
+<br>
+<h2> Reviews: </h2>
+<br>
+
+
+<table>
+<% @album.line_items.each do |item| %>
+  <% if item.review != "None" %>
+  <% if item.review != "" %>
+    <td>
+      <h3><%= item.profile.name %></h3>
+      <%= image_tag(item.profile.profile_picture_url, size: "100x150", class: 'list_image') %>
+    </td>
+
+    <td>
+      <pre>
+        <%= item.review %>
+      </pre>
+    </td>
+  <% end %>
+  <% end %>
+<% end %>
 </table>

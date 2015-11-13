@@ -31,3 +31,26 @@
 	  </dl>
 	</td>
 </table>
+
+<br>
+<h2> Reviews: </h2>
+<br>
+
+<table>
+<% @album.line_items.each do |item| %>
+  <% if item.review != "None" %>
+  <% if item.review != "" %>
+    <td>
+      <h3><%= item.profile.name %></h3>
+      <%= image_tag(item.profile.profile_picture_url, size: "100x150", class: 'list_image') %>
+    </td>
+
+    <td>
+      <pre>
+        <%= item.review %>
+      </pre>
+    </td>
+  <% end %>
+  <% end %>
+<% end %>
+</table>
