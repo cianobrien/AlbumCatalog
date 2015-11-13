@@ -1,0 +1,5 @@
+class AddReviewToLineItems < ActiveRecord::Migration
+  def change
+    add_column :line_items, :review, :text
+  end
+end

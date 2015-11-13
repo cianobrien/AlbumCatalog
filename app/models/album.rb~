@@ -11,20 +11,19 @@ class Album < ActiveRecord::Base
    	message: 'must be a URL for GIF, JPG or PNG image.'
   }
 
+  def find_line_item(prof)
+    prof.line_items.each do |item|
+      if item.album.id == self.id
+        puts item
+      end
+    end
+  end
   
   def entered?(profile)
     if profile
       profile.albums.include? self
     else
       false
-    end
-  end
-
-  def find_line_item(profid)
-    self.line_items.each do |item|
-      if item.profile.id == profid
-        item
-      end
     end
   end
 

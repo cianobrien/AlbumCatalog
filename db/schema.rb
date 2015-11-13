@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112122212) do
+ActiveRecord::Schema.define(version: 20151113141955) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151112122212) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "rating",     default: 0.0
+    t.text     "review",     default: "None"
   end
 
   add_index "line_items", ["album_id"], name: "index_line_items_on_album_id"

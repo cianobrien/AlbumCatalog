@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   has_many :albums, through: :line_items
-  has_and_belongs_to_many :friendships, dependent: :destroy
+  has_many :friendships, dependent: :destroy
   validates :name, uniqueness: true
   validates :profile_picture_url, allow_blank: true, format: {
   	with: %r{\.(gif|jpg|png)\Z}i,

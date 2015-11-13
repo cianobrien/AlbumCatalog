@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-</html>
+
 <h1>Listing line_items</h1>
 
 <table>
@@ -17,7 +17,7 @@
     <% @line_items.each do |line_item| %>
       <tr>
         <td><%= line_item.album.name %></td>
-        <td><%= line_item.profile %></td>
+        <td><%= line_item.profile.name %></td>
 	<td><%= line_item %></td>
         <td><%= link_to 'Show', line_item %></td>
         <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
@@ -28,6 +28,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Line item', new_line_item_path %>
+</html>
 

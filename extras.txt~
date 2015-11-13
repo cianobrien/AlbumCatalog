@@ -5,7 +5,7 @@ menu controller
 	@profile = Profile.find(session[:profile_id])
 
 browse
-
+album.find_line_item(@current_profile), :method => :delete
 
 application
 

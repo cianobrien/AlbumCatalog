@@ -4,17 +4,13 @@
   <tbody>
     <% @profiles.each do |profile| %>
         <td>
+        <h3><%= profile.name %></h3>
         <%= link_to image_tag(profile.profile_picture_url, size: "100x150", class: 'list_image'), profile %>
-        <%= link_to 'Delete', profile, method: :delete %>
-      </td>
-	<td>
-	  <dl>
-	    <pre>
-	      <h3><%= profile.name %></h3>
-	    </pre>
-	  </dl>
-	</td>
-</table>
+        <h3>  </h3>
+        <% if session[:profile_id] == 15 %>
+          <%= link_to 'Delete', profile, method: :delete %>
+        <% end %>
+        </td>
     <% end %>
   </tbody>
 </table>

@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html>
 
+<% if session[:profile_id] == 16 %>
+<h1>Listing line_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Album</th>
+      <th>Profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.album.name %></td>
+        <td><%= line_item.profile.name %></td>
+	<td><%= line_item %></td>
+        <td><%= link_to 'Show', line_item %></td>
+        <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
+        <td><%= link_to 'Destroy', line_item, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% end %>
 </html>
 

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile 1:</strong>
+  <%= @friendship.profile_1 %>
+</p>
+
+<p>
+  <strong>Profile 2:</strong>
+  <%= @friendship.profile_2 %>
+</p>
+
+<%= link_to 'Edit', edit_friendship_path(@friendship) %> |
+<%= link_to 'Back', friendships_path %>

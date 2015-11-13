@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :bio %><br>
-    <%= f.text_area :bior, rows: 6 %>
+    <%= f.text_area :bio, rows: 6 %>
   </div>
   <div class="field">
     <%= f.label :profile_picture_url %><br>

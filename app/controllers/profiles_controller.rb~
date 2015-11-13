@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   include CurrentProfile
-  before_action :set_profile, only: [:show, :edit, :update, :destroy, :find_line_item]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json

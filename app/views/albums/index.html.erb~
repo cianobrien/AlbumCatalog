@@ -18,7 +18,7 @@
   	</dl>
 	</td>
         <td class='list_actions'>
-        <% if session[:profile_id] == 11 %>
+        <% if session[:profile_id] == 16 %>
   	  <%= link_to 'Show', album %>
   	  <%= link_to 'Edit', edit_album_path(album) %>
   	  <%= link_to 'Destroy', album, method: :delete, 

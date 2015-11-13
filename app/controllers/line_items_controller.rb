@@ -46,7 +46,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Rating Updated' }
+        format.html { redirect_to @line_item }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
@@ -73,6 +73,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:album_id, :profile_id, :rating)
+      params.require(:line_item).permit(:album_id, :profile_id, :rating, :review)
     end
 end

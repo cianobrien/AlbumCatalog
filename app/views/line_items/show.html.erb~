@@ -10,9 +10,9 @@
   <% end %>
 <% end %>
 
-<% if @line_item.profile_id == 11 %>
+<% if @line_item.profile_id == session[:profile_id] %>
   <p class = links>
-    <%= link_to 'Change Rating', edit_line_item_path(@line_item) %> | 
+    <%= link_to 'Change Rating/Review', edit_line_item_path(@line_item) %> | 
     <%= link_to 'Remove From Profile', @line_item, method: :delete %>
   </p>
 <% end %>
@@ -30,4 +30,23 @@
 	    </pre>
 	  </dl>
 	</td>
+
+<td class = 'reviewclass'>
+<pre>
+  <% if @line_item.review != "None" %>
+    <% if @line_item.review != "" %>
+      <% if @line_item.profile_id == session[:profile_id] %>
+        <h3>Your Review:</h3>
+        <%= @line_item.review %>
+      <% else %>
+        <h3><%= @line_item.profile.name %>'s Review:</h3>
+        <%= @line_item.review %>
+      <% end %>
+    <% end %>
+  <% end %>
+</pre>
+</td>
+
 </table>
+
+
