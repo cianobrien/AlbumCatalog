@@ -14,22 +14,28 @@
 <body>
 
 <%= content_tag :body, class: controller.controller_name do %>
-<div id="columns">
-  <div id="side">
-    <ul>
-      <li id="sidelink"><%= link_to "Home", "/" %></li>
-      <li id="sidelink"><%= link_to "AudioPhiles", "/profiles" %></li>
-      <li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
-      </br>
-      <% if session[:profile_id] %>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li id="sidelink"><%= link_to "Home", "/" %></li>
+        <li id="sidelink"><%= link_to "AudioPhiles", "/profiles" %></li>
+        <li><a href="/albums/new" style="text-decoration:none">Add Album</a></li>
+        </br>
+        <% if session[:user_id] %>
+        <br />
         <li id="sidelink"><%= link_to "Your AudioFile", profile_path(session[:profile_id]) %></li>
-      <% end %>	
-    </ul>
+        <li id="sidelink"><%= link_to 'Logout', logout_path, :method => :delete %></li>
+        <% else %>
+          <li id="sidelink"><%= link_to 'Login', login_path %></li>
+          <li id="sidelink"><%= link_to 'New Account', "/users/new" %></li>
+        <% end %>
+        <br />	
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
-  <div id="main">
-    <%= yield %>
-  </div>
-</div>
 <% end %>
 
 </body>

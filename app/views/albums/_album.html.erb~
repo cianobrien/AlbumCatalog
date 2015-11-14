@@ -8,9 +8,9 @@
     <% end %>
 	
     <span class="imglink">
-      <% if session[:profile_id] %>
+      <% if session[:user_id] %>
         <% if album.entered?(@current_profile) %>
-          Added to Profile
+          <%= link_to 'Added to Profile', @current_profile %>
         <% else %>
           <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %>
         <% end %>

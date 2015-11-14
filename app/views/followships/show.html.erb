@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @followship.user %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @followship.profile %>
+</p>
+
+<%= link_to 'Edit', edit_followship_path(@followship) %> |
+<%= link_to 'Back', followships_path %>

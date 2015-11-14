@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :followships
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  resources :users
+
   resources :friendships
 
   resources :line_items

@@ -7,6 +7,7 @@
 <% end %>
 
 
+<% if session[:user_id] %>
 <p class = links>
   <% if @album.entered?(@profile) %>
     Added to Profile
@@ -14,7 +15,7 @@
     <%= link_to 'Add to Profile', line_items_path(album_id: @album), :method => :post %> 
   <% end %>
 </p>
-
+<% end %>
 
 <table>
 
@@ -35,7 +36,6 @@
 <br>
 <h2> Reviews: </h2>
 <br>
-
 
 <table>
 <% @album.line_items.each do |item| %>

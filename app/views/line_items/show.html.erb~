@@ -3,18 +3,22 @@
 <h1><%= @line_item.album.name %></h1>
 <h2><%= @line_item.album.artist %>, <%= @line_item.album.year %></h2>
 <% if @line_item.rating > 0 %>
+  <% if session[:user_id] %>
   <% if @line_item.profile_id == session[:profile_id] %>
     <h3>Your Rating: <%= @line_item.rating.round(1) %></h3>
+  <% end %>
   <% else %>
     <h3><%= @line_item.profile.name %>'s Rating: <%= @line_item.rating.round(1) %></h3>
   <% end %>
 <% end %>
 
+<% if session[:user_id] %>
 <% if @line_item.profile_id == session[:profile_id] %>
   <p class = links>
     <%= link_to 'Change Rating/Review', edit_line_item_path(@line_item) %> | 
     <%= link_to 'Remove From Profile', @line_item, method: :delete %>
   </p>
+<% end %>
 <% end %>
 
 <table>
@@ -31,7 +35,7 @@
 	  </dl>
 	</td>
 
-<td class = 'reviewclass'>
+<td>
 <pre>
   <% if @line_item.review != "None" %>
     <% if @line_item.review != "" %>

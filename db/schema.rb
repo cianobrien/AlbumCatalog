@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113141955) do
+ActiveRecord::Schema.define(version: 20151114145638) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20151113141955) do
     t.datetime "updated_at"
     t.decimal  "rating",     default: 0.0
   end
+
+  create_table "followships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "followships", ["profile_id"], name: "index_followships_on_profile_id"
+  add_index "followships", ["user_id"], name: "index_followships_on_user_id"
 
   create_table "friendships", force: true do |t|
     t.integer  "profile_1_id"
@@ -53,5 +63,15 @@ ActiveRecord::Schema.define(version: 20151113141955) do
     t.datetime "updated_at"
     t.text     "bio",                 default: "None Added"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "profile_id"
+  end
+
+  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
 
 end

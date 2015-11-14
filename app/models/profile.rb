@@ -1,8 +1,8 @@
 class Profile < ActiveRecord::Base
+  belongs_to :users
   has_many :line_items, dependent: :destroy
   has_many :albums, through: :line_items
-  has_many :friendships, dependent: :destroy
-  validates :name, uniqueness: true
+  has_many :followships, dependent: :destroy
   validates :profile_picture_url, allow_blank: true, format: {
   	with: %r{\.(gif|jpg|png)\Z}i,
    	message: 'must be a URL for GIF, JPG or PNG image.'
