@@ -6,6 +6,11 @@
   position: absolute;
   right: 0;
   top: 0;
-  margin-right: 5em;
+  margin-right: 10em;
   margin-top: 5em;
+}
+
+item_review{
+  position: absolute;
+  right: 0;
 }

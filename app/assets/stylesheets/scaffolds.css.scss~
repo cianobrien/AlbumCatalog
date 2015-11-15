@@ -25,8 +25,8 @@ h3{
 }
 
 h4{
-  position: relative;
-  margin-top: -5px;
+  position: static;
+  margin-top: -3px;
   color: #8c8c8c;
 }
 

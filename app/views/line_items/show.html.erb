@@ -26,11 +26,11 @@
 <% end %>
 
 <table>
-<td>
+<td valign="top">
 <%= image_tag(@line_item.album.image_url, size: "400x400", class: 'list_image') %>
 </td>
 
-<td class='list_tracks'>
+<td class='list_tracks' valign="top">
 	  <dl>
 	    <pre>
 	      <h3>Tracks:</h3>
@@ -39,7 +39,7 @@
 	  </dl>
 	</td>
 
-<td valign="top">
+<td valign="top" width="400px">
 <pre>
   <% if @line_item.review != "None" %>
     <% if @line_item.review != "" %>

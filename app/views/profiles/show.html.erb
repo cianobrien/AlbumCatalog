@@ -30,7 +30,7 @@
   <% end %>
   </td>
 
-<td class='bio' valign="top">
+<td class='bio' width="550px" >
 	  <dl>
 	    <pre>
 	      <h2>Bio:</h2>
@@ -46,7 +46,7 @@
 
 <table>
 <tbody>
-<td width="670px" valign="top" class="items">
+<td width="680px" valign="top" class="items">
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
   <center><h2>Your Album List:</h2></center>
@@ -84,24 +84,8 @@
 </td>
 
 
-<td valign="top" class="follows">
-<% if session[:user_id] %>
-<% if @profile == User.find(session[:user_id]).profile %>
-  <center><h2>You're Following:</h2></center>
-<% else %>
-  <% if @profile.name == nil  %>
-    <center><h2>New User's Following:</h2></center>
-  <% else %>
-    <center><h2><%= @profile.name %>'s Following:</h2></center>
-  <% end %>
-<% end %>
-<% else %>
-  <% if @profile.name == nil  %>
-    <center><h2>New User's Following:</h2></center>
-  <% else %>
-    <center><h2><%= @profile.name %>'s Following:</h2></center>
-  <% end %>
-<% end %>
+<td valign="top" class="follows" width="360px">
+<center><h2>Following:</h2></center>
 
 <br>
 <% Followship.all.each do |foll| %>
@@ -126,23 +110,7 @@
 <% end %>
 <% end %>
 
-<% if session[:user_id] %>
-<% if @profile == User.find(session[:user_id]).profile %>
-  <center><h2>Your Followers:</h2></center>
-<% else %>
-  <% if @profile.name == nil  %>
-    <center><h2>New User's Followers:</h2></center>
-  <% else %>
-    <center><h2><%= @profile.name %>'s Followers:</h2></center>
-  <% end %>
-<% end %>
-<% else %>
-  <% if @profile.name == nil  %>
-    <center><h2>New User's Followers:</h2></center>
-  <% else %>
-    <center><h2><%= @profile.name %>'s Followers:</h2></center>
-  <% end %>
-<% end %>
+<center><h2>Followers:</h2></center>
 
 <br>
 <% Followship.all.each do |foll| %>
@@ -190,7 +158,7 @@
     <table>
     <tbody>
     <pre>
-    <td><%= image_tag(item.album.image_url, size: "100x100", class: 'list_image') %></td>
+    <td valign="top"><%= image_tag(item.album.image_url, size: "100x100", class: 'list_image') %></td>
     <td valign="top">
     <h4><%= item.album.artist %>: <%= item.album.name %></h4>
     <p class="reviews"><%= item.review %></p>
