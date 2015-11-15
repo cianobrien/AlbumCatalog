@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :friendships
-
   resources :line_items
 
   resources :profiles

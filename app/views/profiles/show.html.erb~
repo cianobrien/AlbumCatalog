@@ -13,7 +13,7 @@
   </p>
 <% else %>
   <% if User.find(session[:user_id]).following?(@profile) %>
-    <p class = links><%= link_to 'Following', @profile.find_followship(User.find(session[:user_id])), :method => :delete %>
+    <p class = links><%= link_to 'Following', "/" %>
   <% else %></p>
     <p class = links><%= link_to 'Follow', followships_path(profile_id: @profile), :method => :post %></p>
   <% end %>
@@ -29,7 +29,12 @@
     <%= image_tag(@profile.profile_picture_url, size: "150x200", class: 'list_image') %>
   <% end %>
   <br>
-  Followers: <% @profile.num_followers %>
+  <pre class='bio'>
+  Followers: <%= @profile.num_followers %>
+  <% puts "################" %>
+  <% puts Followship.all %>
+  Following: <%= @profile.num_following(Followship.all) %>
+  </pre>
   </td>
 
 <td class='bio'>
@@ -85,7 +90,7 @@
 <br>
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
-  <%= link_to 'Delete your account', [User.find(session[:user_id]), logout_path], method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete your account', User.find(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <% end %>
 

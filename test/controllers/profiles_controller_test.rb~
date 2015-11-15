@@ -21,7 +21,7 @@ class ProfilesControllerTest < ActionController::TestCase
       post :create, profile: { name: @profile.name, profile_picture_url: @profile.profile_picture_url }
     end
 
-    assert_redirected_to "/"
+    assert_redirected_to profile_path(assigns(:profile))
   end
 
   test "should show profile" do

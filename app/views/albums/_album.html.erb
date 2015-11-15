@@ -12,7 +12,7 @@
     <span class="imglink">
       <% if session[:user_id] %>
         <% if album.entered?(User.find(session[:user_id]).profile) %>
-          <%= link_to 'Added to Profile', User.find(session[:user_id]).profile %>
+          <%= link_to 'Remove from Profile', "/" %>
         <% else %>
           <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %>
         <% end %>
@@ -21,7 +21,7 @@
   </span>
 
 <% else %>
-  <% if album.name.downcase.include? params[:albumsearch].downcase or album.artist.downcase.include? params[:albumsearch].downcase or album.year.to_s.downcase == params[:albumsearch].downcase %>
+  <% if album.name.downcase.include? params[:albumsearch].downcase or album.artist.downcase.include? params[:albumsearch].downcase or album.year.to_s.downcase.include? params[:albumsearch].downcase %>
   <span class = "cover">
     <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image'), album %>
 
@@ -35,7 +35,7 @@
     <span class="imglink">
       <% if session[:user_id] %>
         <% if album.entered?(User.find(session[:user_id]).profile) %>
-          <%= link_to 'Added to Profile', User.find(session[:user_id]).profile %>
+          <%= link_to 'Remove from Profile', "/" %>
         <% else %>
           <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %>
         <% end %>

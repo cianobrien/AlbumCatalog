@@ -26,7 +26,16 @@ class Profile < ActiveRecord::Base
 
   def num_followers
     self.followships.count
-    puts self.followships.count
+  end
+
+  def num_following(folls)
+    @out = 0
+    folls.each do |foll|
+      if foll.user.profile == self
+        @out = @out + 1
+      end
+    end
+    @out
   end
 
 end

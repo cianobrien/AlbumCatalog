@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
-  get 'sessions/create'
+  resources :followships
 
-  get 'sessions/destroy'
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 
   resources :users
 
-  resources :friendships
-
-  resources :line_items
+  resources :line_items do
+    resources :create
+  end
 
   resources :profiles
 

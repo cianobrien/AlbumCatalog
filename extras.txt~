@@ -1,13 +1,12 @@
 show profile
-
+@profile.find_followship(User.find(session[:user_id])), :method => :delete
 
 
 menu controller
-
-	@profile = Profile.find(session[:profile_id])
+@profile = User.find(session[:user_id]).profile
 
 _album
-album.find_line_item(@current_profile), :method => :delete
+album.find_line_item(User.find(session[:user_id]).profile), :method => :delete
 
 application
 
@@ -67,7 +66,10 @@ index profiles
           <h3><%= profile.name %></h3>
         <% end %>
 
+
+
 <br>
           <% if session[:user_id] == 1 %>
           <%= link_to 'Delete', profile, method: :delete %>
           <% end %>
+########
