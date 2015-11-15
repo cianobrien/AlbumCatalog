@@ -11,8 +11,6 @@
   <input type="search" name="albumsearch" placeholder="Enter album, artist, year..."/>
 </form>
 
-params[:albumsearch]
-
 <br>
 <br>
 <br>

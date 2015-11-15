@@ -9,7 +9,7 @@
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
   <p class = links>
-    <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+    <%= link_to 'Edit Profile', edit_profile_path(@profile) %> | <%= link_to 'Delete your account', User.find(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% else %>
   <% if User.find(session[:user_id]).following?(@profile) %>
@@ -28,14 +28,9 @@
   <% else %>
     <%= image_tag(@profile.profile_picture_url, size: "150x200", class: 'list_image') %>
   <% end %>
-  <br>
-  <pre class='bio'>
-  Followers: <%= @profile.num_followers %>
-  Following: <%= @profile.num_following(Followship.all) %>
-  </pre>
   </td>
 
-<td class='bio'>
+<td class='bio' valign="top">
 	  <dl>
 	    <pre>
 	      <h2>Bio:</h2>
@@ -49,9 +44,19 @@
 <br>
 <br>
 
+<table>
+<tbody>
+
+<td width="675px" valign="top">
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
   <center><h2>Your Album List:</h2></center>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Album List:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Album List:</h2></center>
+  <% end %>
 <% end %>
 <% else %>
   <% if @profile.name == nil  %>
@@ -61,12 +66,6 @@
   <% end %>
 <% end %>
 
-
-<br>
-<br>
-<br>
-<br>
-   
 <% @profile.line_items.order(:rating).reverse.each do |line_item| %>
   <span class = "cover"><%= link_to image_tag(line_item.album.image_url, size: "150x150", class: 'list_image'), line_item %>
     <span class="imgDescription">
@@ -83,13 +82,122 @@
     <% end %>
   </span>
 <% end %>
+</td>
 
-<br>
-<br>
+
+<td valign="top">
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
-  <%= link_to 'Delete your account', User.find(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <center><h2>You're Following:</h2></center>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Following:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Following:</h2></center>
+  <% end %>
+<% end %>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Following:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Following:</h2></center>
+  <% end %>
+<% end %>
+
+
+<% Followship.all.each do |foll| %>
+  <% if foll.user.profile = @profile %>
+  <% puts @profile.name %>
+  <% @current_prof = foll.profile %>
+  <span class = "cover2">
+    <% if @current_prof.profile_picture_url == nil  %>
+      <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), @current_prof %>
+    <% else %>
+      <%= link_to image_tag(@current_prof.profile_picture_url, size: "100x150", class: 'list_image'), @current_prof %>
+    <% end %>
+
+    <span class="imgDescription2">
+      <% if @current_prof.name == nil  %>
+        New User
+      <% else %>
+        <%= @current_prof.name %>
+      <% end %>
+    </span>          
+  </span>
 <% end %>
 <% end %>
+
+<% if session[:user_id] %>
+<% if @profile == User.find(session[:user_id]).profile %>
+  <center><h2>Your Followers:</h2></center>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Followers:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Followers:</h2></center>
+  <% end %>
+<% end %>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Followers:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Followers:</h2></center>
+  <% end %>
+<% end %>
+
+
+<% Followship.all.each do |foll| %>
+  <% if foll.profile == @profile %>
+  <% @current_prof = foll.user.profile %>
+  <span class = "cover2">
+    <% if @current_prof.profile_picture_url == nil  %>
+      <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), @current_prof %>
+    <% else %>
+      <%= link_to image_tag(@current_prof.profile_picture_url, size: "100x150", class: 'list_image'), @current_prof %>
+    <% end %>
+
+    <span class="imgDescription2">
+      <% if @current_prof.name == nil  %>
+        New User
+      <% else %>
+        <%= @current_prof.name %>
+      <% end %>
+    </span>          
+  </span>
+<% end %>
+<% end %>
+
+<% if session[:user_id] %>
+<% if @profile == User.find(session[:user_id]).profile %>
+  <center><h2>Your Reviews:</h2></center>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Reviews:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Reviews:</h2></center>
+  <% end %>
+<% end %>
+<% else %>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Reviews:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Reviews:</h2></center>
+  <% end %>
+<% end %>
+
+<% @profile.line_items.each do |item| %>
+  <% if not item.review == "None" %>
+  <% if not item.review == "" %>
+    <pre>
+    <h3><%= item.album.artist %>: <%= item.album.name %></h3>
+    <%= image_tag(item.album.image_url, size: "100x100", class: 'list_image') %>
+    <%= item.review %>
+    </pre>
+  <% end %>
+  <% end %>
+<% end %>
+</td>
+</tbody>
+</table>
 
 

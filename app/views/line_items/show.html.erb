@@ -18,7 +18,11 @@
     <%= link_to 'Change Rating/Review', edit_line_item_path(@line_item) %> | 
     <%= link_to 'Remove From Profile', @line_item, method: :delete %>
   </p>
+<% else %>
+  <p class = links><%= link_to @line_item.profile.name, @line_item.profile %></p>
 <% end %>
+<% else %>
+  <p class = links><%= link_to @line_item.profile.name, @line_item.profile %></p>
 <% end %>
 
 <table>
@@ -35,7 +39,7 @@
 	  </dl>
 	</td>
 
-<td>
+<td valign="top">
 <pre>
   <% if @line_item.review != "None" %>
     <% if @line_item.review != "" %>

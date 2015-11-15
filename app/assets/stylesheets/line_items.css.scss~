@@ -6,11 +6,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  margin-right: 26em;
+  margin-right: 5em;
   margin-top: 5em;
-}
-
-.reviewclass {
-  position: relative;
-  top: 0;
 }
