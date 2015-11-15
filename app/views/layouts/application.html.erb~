@@ -23,7 +23,7 @@
         </br>
         <% if session[:user_id] %>
         <br />
-        <li id="sidelink"><%= link_to "Your AudioFile", profile_path(session[:profile_id]) %></li>
+        <li id="sidelink"><%= link_to "Your AudioFile", profile_path(User.find(session[:user_id]).profile) %></li>
         <li id="sidelink"><%= link_to 'Logout', logout_path, :method => :delete %></li>
         <% else %>
           <li id="sidelink"><%= link_to 'New Account', "/users/new" %></li>

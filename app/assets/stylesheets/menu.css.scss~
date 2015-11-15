@@ -2,7 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+#searchbox {
+  z-index: 2;
+  position: absolute;
+  margin-left: 600px;
+  margin-top: -200px;
+  color: #8c8c8c;
+  font: small-caps 20px/20px 'Ubuntu', sans-serif;
+}
 
 .cover {
   position: relative;
@@ -24,7 +31,7 @@
   background: #050505;
   color: #fff;
   border: 1px solid #8c8c8c;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-bottom: 185px;
 
 

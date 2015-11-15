@@ -1,14 +1,21 @@
 <h1>AudioPhiles</h1>
 
+<form id="searchbox2">
+  Find User:
+  <input type="search" name="profilesearch" placeholder="Enter user's name..."/>
+</form>
+
+<% if params[:profilesearch] == nil %>
+
 <% @profiles.each do |profile| %>
-  <span class = "cover">
+  <span class = "cover2">
     <% if profile.profile_picture_url == nil  %>
       <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), profile %>
     <% else %>
       <%= link_to image_tag(profile.profile_picture_url, size: "100x150", class: 'list_image'), profile %>
     <% end %>
 
-    <span class="imgDescription">
+    <span class="imgDescription2">
       <% if profile.name == nil  %>
         New User
       <% else %>
@@ -17,11 +24,37 @@
     </span>
 
     <% if session[:user_id] == 1 %>
-      <span class="imglink"><%= link_to 'Delete', profile, method: :delete %></span>
+      <span class="imglink2"><%= link_to 'Delete', profile, method: :delete %></span>
     <% end %>
           
   </span>
 <% end %>
 
+<% else %>
+  <% @profiles.each do |profile| %>
+    <% if profile.name.downcase.include? params[:profilesearch].downcase %>
+    <span class = "cover2">
+    <% if profile.profile_picture_url == nil  %>
+      <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), profile %>
+    <% else %>
+      <%= link_to image_tag(profile.profile_picture_url, size: "100x150", class: 'list_image'), profile %>
+    <% end %>
 
+    <span class="imgDescription2">
+      <% if profile.name == nil  %>
+        New User
+      <% else %>
+        <%= profile.name %>
+      <% end %>
+    </span>
+
+    <% if session[:user_id] == 1 %>
+      <span class="imglink2"><%= link_to 'Delete', profile, method: :delete %></span>
+    <% end %>
+          
+  </span>
+  <% end %>
+  <% end %>
+
+<% end %>
 

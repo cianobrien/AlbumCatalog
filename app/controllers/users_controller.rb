@@ -55,11 +55,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    cookies.delete :session
+    reset_session
     @user.profile.destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Your account has been deleted.' }
+      format.html { redirect_to "/", notice: 'Your account has been deleted.' }
       format.json { head :no_content }
     end
   end

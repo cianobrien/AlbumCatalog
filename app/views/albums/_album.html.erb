@@ -1,3 +1,4 @@
+<% if params[:albumsearch] == nil %>
   <span class = "cover">
     <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image'), album %>
 
@@ -18,3 +19,28 @@
       <% end %>
     </span>
   </span>
+
+<% else %>
+  <% if album.name.downcase.include? params[:albumsearch].downcase or album.artist.downcase.include? params[:albumsearch].downcase or album.year.to_s.downcase == params[:albumsearch].downcase %>
+  <span class = "cover">
+    <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image'), album %>
+
+    <% if album.get_rating > 0 %>
+      <% puts "True" %>
+      <span class="imgDescription"><%= album.artist %>:<br><%= album.name %> (<%= album.get_rating.round(1) %>)</span>
+    <% else %>
+      <span class="imgDescription"><%= album.artist %>:<br><%= album.name %></span>
+    <% end %>
+	
+    <span class="imglink">
+      <% if session[:user_id] %>
+        <% if album.entered?(User.find(session[:user_id]).profile) %>
+          <%= link_to 'Added to Profile', User.find(session[:user_id]).profile %>
+        <% else %>
+          <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %>
+        <% end %>
+      <% end %>
+    </span>
+  </span>
+<% end %>
+<% end %>

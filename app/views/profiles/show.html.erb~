@@ -51,7 +51,11 @@
   <center><h2>Your Album List:</h2></center>
 <% end %>
 <% else %>
-  <center><h2><%= @profile.name %>'s Album List:</h2></center>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Album List:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Album List:</h2></center>
+  <% end %>
 <% end %>
 
 
@@ -81,7 +85,7 @@
 <br>
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
-  <%= link_to 'Delete your account', User.find(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete your account', [User.find(session[:user_id]), logout_path], method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <% end %>
 
