@@ -2,7 +2,7 @@ class Profile < ActiveRecord::Base
   belongs_to :users
   has_many :line_items, dependent: :destroy
   has_many :albums, through: :line_items
-  has_many :friendships, dependent: :destroy
+  has_many :followships, dependent: :destroy
   validates :profile_picture_url, allow_blank: true, format: {
   	with: %r{\.(gif|jpg|png)\Z}i,
    	message: 'must be a URL for GIF, JPG or PNG image.'
@@ -16,7 +16,16 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def friends?(prof)
-    prof.friendships.include? self
+  def find_followship(usr)
+    self.followships.each do |foll|
+      if foll.user == usr
+        foll
+      end
+    end
   end
+
+  def num_followers
+    self.followships.count
+  end
+
 end

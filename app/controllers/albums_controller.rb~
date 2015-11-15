@@ -1,6 +1,5 @@
 class AlbumsController < ApplicationController
-
-  before_action :set_album
+  before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
@@ -11,7 +10,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    @profile = Profile.find(session[:profile_id])
+    @profile = User.find(session[:user_id]).profile
     amount = 0
     @album.line_items.each do |item|
       if item.rating > 0;

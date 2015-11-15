@@ -1,4 +1,4 @@
-<% if session[:user_id] == 1 %>
+<% if session[:user_id] == 8 %>
 <p id="notice"><%= notice %></p>
 
 <p>

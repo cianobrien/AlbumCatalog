@@ -1,7 +1,9 @@
 <h1>Rate/Review <%= @line_item.album.name %></h1>
 
 <% if session[:user_id] %>
-<% if @line_item.profile_id == session[:profile_id] %>
+<% puts "hi" %>
+<% puts User.find(session[:user_id]) %>
+<% if @line_item.profile == User.find(session[:user_id]).profile %>
 <%= render 'form' %>
 <% end %>
 <% end %>

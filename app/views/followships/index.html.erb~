@@ -1,9 +1,7 @@
-<% if session[:user_id] == 1 %>
 <h1>Listing followships</h1>
 
 <table>
   <thead>
-
     <tr>
       <th>User</th>
       <th>Profile</th>
@@ -27,4 +25,3 @@
 <br>
 
 <%= link_to 'New Followship', new_followship_path %>
-<% end %>

@@ -1,6 +1,4 @@
 class LineItemsController < ApplicationController
-  include CurrentProfile
-  before_action :set_profile
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -27,7 +25,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     album = Album.find(params[:album_id])
-    @line_item = @current_profile.line_items.build(album: album)
+    @line_item = User.find(session[:user_id]).profile.line_items.build(album: album)
 
     respond_to do |format|
       if @line_item.save

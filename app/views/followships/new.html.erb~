@@ -1,7 +1,5 @@
-<% if session[:user_id] == 1 %>
 <h1>New followship</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', followships_path %>
-<% end %>

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include CurrentProfile
-  before_action :set_profile
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -27,10 +25,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.profile = Profile.create
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to "/", notice: 'User was successfully created.' }
+        format.html { redirect_to "/", notice: 'Account was successfully created. Login to access your new account.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -56,9 +55,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    cookies.delete :session
+    @user.profile.destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Your account has been deleted.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation, :profile)
     end
 end

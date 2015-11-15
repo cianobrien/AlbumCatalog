@@ -11,11 +11,26 @@ class Album < ActiveRecord::Base
    	message: 'must be a URL for GIF, JPG or PNG image.'
   }
 
+  def get_rating
+    @n = 0
+    @amount = 0
+    self.line_items.each do |item|
+      if item.rating > 0
+        @n = @n + 1
+        @amount = @amount + item.rating
+      end
+    end
+    if @amount > 0
+      @amount/@n
+    else
+      @amount
+    end
+  end
+
   def find_line_item(prof)
-    prof.line_items.each do |item|
-      if item.album.id == self.id
-        puts "hi"
-        puts item.album.name
+    self.line_items.each do |item|
+      if item.profile == prof
+        item
       end
     end
   end

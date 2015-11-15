@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-
+<% if session[:profile_id] == 16 %>
 <h1>Listing line_items</h1>
 
 <table>
@@ -28,5 +28,6 @@
 </table>
 
 <br>
+<% end %>
 </html>
 

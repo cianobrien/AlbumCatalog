@@ -1,8 +1,6 @@
-<% if session[:user_id] == 8 %>
 <h1>Editing album</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @album %> |
 <%= link_to 'Back', albums_path %>
-<% end %>

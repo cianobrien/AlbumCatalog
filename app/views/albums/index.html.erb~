@@ -1,5 +1,4 @@
 <h1>Albums</h1>
-<%= link_to 'New Album', new_album_path %>
 
 <table>
 
@@ -18,7 +17,7 @@
   	</dl>
 	</td>
         <td class='list_actions'>
-        <% if session[:profile_id] == 16 %>
+        <% if session[:user_id] == 8 %>
   	  <%= link_to 'Show', album %>
   	  <%= link_to 'Edit', edit_album_path(album) %>
   	  <%= link_to 'Destroy', album, method: :delete, 

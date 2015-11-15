@@ -16,7 +16,17 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def friends?(prof)
-    prof.friendships.include? self
+  def find_followship(usr)
+    self.followships.each do |foll|
+      if foll.user == usr
+        foll
+      end
+    end
   end
+
+  def num_followers
+    self.followships.count
+    puts self.followships.count
+  end
+
 end

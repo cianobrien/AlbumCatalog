@@ -26,8 +26,8 @@
         <li id="sidelink"><%= link_to "Your AudioFile", profile_path(session[:profile_id]) %></li>
         <li id="sidelink"><%= link_to 'Logout', logout_path, :method => :delete %></li>
         <% else %>
-          <li id="sidelink"><%= link_to 'Login', login_path %></li>
           <li id="sidelink"><%= link_to 'New Account', "/users/new" %></li>
+          <li id="sidelink"><%= link_to 'Login', login_path %></li>
         <% end %>
         <br />	
       </ul>

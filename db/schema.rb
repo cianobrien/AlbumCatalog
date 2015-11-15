@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114145638) do
+ActiveRecord::Schema.define(version: 20151114195807) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20151114145638) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "profile_id"
+    t.integer  "profile_id",      default: 31
   end
 
   add_index "users", ["profile_id"], name: "index_users_on_profile_id"

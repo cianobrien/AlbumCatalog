@@ -1,3 +1,4 @@
+<% if not session[:user_id] %>
 <div class="depot_form">
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
@@ -22,3 +23,4 @@
     </fieldset>
   <% end %>
 </div>
+<% end %>

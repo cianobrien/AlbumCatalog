@@ -1,3 +1,5 @@
+show profile
+
 
 
 menu controller
@@ -40,3 +42,35 @@ application
 
 <%= link_to 'New Line item', new_line_item_path %>
 ##########
+
+concern - current_profile.rb
+##########
+module CurrentProfile
+  extend ActiveSupport::Concern
+
+  private
+
+    def set_profile 
+      @current_profile = Profile.find(session[:profile_id])
+    rescue ActiveRecord::RecordNotFound
+      @current_profile = Profile.create
+      session[:profile_id] = @current_profile.id
+  end
+end
+#######
+
+index profiles
+#######
+<% if profile.name == nil  %>
+          <h3>New User</h3>
+        <% else %>
+          <h3><%= profile.name %></h3>
+        <% end %>
+
+
+
+<br>
+          <% if session[:user_id] == 1 %>
+          <%= link_to 'Delete', profile, method: :delete %>
+          <% end %>
+########

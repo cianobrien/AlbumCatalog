@@ -1,21 +1,20 @@
   <span class = "cover">
     <%= link_to image_tag(album.image_url, size: "150x150", class: 'list_image'), album %>
 
-    <% if album.rating > 0 %>
-      <span class="imgDescription"><%= album.artist %>:<br><%= album.name %> (<%= album.rating.round(1) %>)</span>
+    <% if album.get_rating > 0 %>
+      <% puts "True" %>
+      <span class="imgDescription"><%= album.artist %>:<br><%= album.name %> (<%= album.get_rating.round(1) %>)</span>
     <% else %>
       <span class="imgDescription"><%= album.artist %>:<br><%= album.name %></span>
     <% end %>
 	
     <span class="imglink">
       <% if session[:user_id] %>
-        <% if album.entered?(@current_profile) %>
-          <%= link_to 'Added to Profile', @current_profile %>
+        <% if album.entered?(User.find(session[:user_id]).profile) %>
+          <%= link_to 'Added to Profile', Session.find(session[:user_id]).profile %>
         <% else %>
           <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %>
         <% end %>
-      <% else %>
-        <%= link_to 'Add to Profile', line_items_path(album_id: album), :method => :post, remote: true %> 
       <% end %>
     </span>
   </span>

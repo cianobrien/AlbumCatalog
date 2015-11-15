@@ -7,17 +7,29 @@
 </p>
 
 <% if session[:user_id] %>
-<% if @profile.id == session[:profile_id] %>
+<% if @profile == User.find(session[:user_id]).profile %>
   <p class = links>
     <%= link_to 'Edit Profile', edit_profile_path(@profile) %>
   </p>
+<% else %>
+  <% if User.find(session[:user_id]).following?(@profile) %>
+    <p class = links><%= link_to 'Following', @profile.find_followship(User.find(session[:user_id])), :method => :delete %>
+  <% else %></p>
+    <p class = links><%= link_to 'Follow', followships_path(profile_id: @profile), :method => :post %></p>
+  <% end %>
 <% end %>
 <% end %>
 
 <table>
 
   <td>
+  <% if @profile.profile_picture_url == nil  %>
+      <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "150x200", class: 'list_image') %>
+  <% else %>
     <%= image_tag(@profile.profile_picture_url, size: "150x200", class: 'list_image') %>
+  <% end %>
+  <br>
+  Followers: <% @profile.num_followers %>
   </td>
 
 <td class='bio'>
@@ -35,11 +47,15 @@
 <br>
 
 <% if session[:user_id] %>
-<% if @profile.id == session[:profile_id] %>
+<% if @profile == User.find(session[:user_id]).profile %>
   <center><h2>Your Album List:</h2></center>
 <% end %>
 <% else %>
-  <center><h2><%= @profile.name %>'s Album List:</h2></center>
+  <% if @profile.name == nil  %>
+    <center><h2>New User's Album List:</h2></center>
+  <% else %>
+    <center><h2><%= @profile.name %>'s Album List:</h2></center>
+  <% end %>
 <% end %>
 
 
@@ -58,12 +74,19 @@
       <% end %>
     </span>
     <% if session[:user_id] %>
-    <% if @profile.id == session[:profile_id] %>
+    <% if @profile == User.find(session[:user_id]).profile %>
       <span class="imglink"><%= link_to 'Remove from Profile', line_item, method: :delete %></span>
     <% end %>
     <% end %>
   </span>
 <% end %>
 
+<br>
+<br>
+<% if session[:user_id] %>
+<% if @profile == User.find(session[:user_id]).profile %>
+  <%= link_to 'Delete your account', User.find(session[:user_id]), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<% end %>
 
 
