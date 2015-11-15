@@ -46,8 +46,7 @@
 
 <table>
 <tbody>
-
-<td width="675px" valign="top">
+<td width="670px" valign="top" class="items">
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
   <center><h2>Your Album List:</h2></center>
@@ -67,8 +66,8 @@
 <% end %>
 
 <% @profile.line_items.order(:rating).reverse.each do |line_item| %>
-  <span class = "cover"><%= link_to image_tag(line_item.album.image_url, size: "150x150", class: 'list_image'), line_item %>
-    <span class="imgDescription">
+  <span class = "cover1"><%= link_to image_tag(line_item.album.image_url, size: "150x150", class: 'list_image'), line_item %>
+    <span class="imgDescription1">
       <% if line_item.rating > 0 %>
 	<%= line_item.album.artist %>:<br><%= line_item.album.name %> (<%= line_item.rating.round(1) %>)
       <% else %>
@@ -77,7 +76,7 @@
     </span>
     <% if session[:user_id] %>
     <% if @profile == User.find(session[:user_id]).profile %>
-      <span class="imglink"><%= link_to 'Remove from Profile', line_item, method: :delete %></span>
+      <span class="imglink1"><%= link_to 'Remove from Profile', line_item, method: :delete %></span>
     <% end %>
     <% end %>
   </span>
@@ -85,7 +84,7 @@
 </td>
 
 
-<td valign="top">
+<td valign="top" class="follows">
 <% if session[:user_id] %>
 <% if @profile == User.find(session[:user_id]).profile %>
   <center><h2>You're Following:</h2></center>
@@ -104,20 +103,19 @@
   <% end %>
 <% end %>
 
-
+<br>
 <% Followship.all.each do |foll| %>
-  <% if foll.user.profile = @profile %>
+  <% if @profile.is_following?(foll) %>
   <% puts @profile.name %>
-  <% if foll.profile != @profile %>
   <% @current_prof = foll.profile %>
-  <span class = "cover2">
+  <span class = "cover3">
     <% if @current_prof.profile_picture_url == nil  %>
       <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), @current_prof %>
     <% else %>
       <%= link_to image_tag(@current_prof.profile_picture_url, size: "100x150", class: 'list_image'), @current_prof %>
     <% end %>
 
-    <span class="imgDescription2">
+    <span class="imgDescription3">
       <% if @current_prof.name == nil  %>
         New User
       <% else %>
@@ -125,7 +123,6 @@
       <% end %>
     </span>          
   </span>
-<% end %>
 <% end %>
 <% end %>
 
@@ -147,18 +144,18 @@
   <% end %>
 <% end %>
 
-
+<br>
 <% Followship.all.each do |foll| %>
   <% if foll.profile == @profile %>
   <% @current_prof = foll.user.profile %>
-  <span class = "cover2">
+  <span class = "cover3">
     <% if @current_prof.profile_picture_url == nil  %>
       <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/0/0e/Lakeyboy_Silhouette.PNG", size: "100x150", class: 'list_image'), @current_prof %>
     <% else %>
       <%= link_to image_tag(@current_prof.profile_picture_url, size: "100x150", class: 'list_image'), @current_prof %>
     <% end %>
 
-    <span class="imgDescription2">
+    <span class="imgDescription3">
       <% if @current_prof.name == nil  %>
         New User
       <% else %>
@@ -190,11 +187,17 @@
 <% @profile.line_items.each do |item| %>
   <% if not item.review == "None" %>
   <% if not item.review == "" %>
+    <table>
+    <tbody>
     <pre>
-    <h3><%= item.album.artist %>: <%= item.album.name %></h3>
-    <%= image_tag(item.album.image_url, size: "100x100", class: 'list_image') %>
-    <%= item.review %>
+    <td><%= image_tag(item.album.image_url, size: "100x100", class: 'list_image') %></td>
+    <td valign="top">
+    <h4><%= item.album.artist %>: <%= item.album.name %></h4>
+    <p class="bio"><%= item.review %></p>
+    </td>
     </pre>
+    </tbody>
+    </table>
   <% end %>
   <% end %>
 <% end %>

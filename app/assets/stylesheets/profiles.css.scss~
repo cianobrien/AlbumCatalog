@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.items{
+  border-right: 2px solid #8c8c8c;
+}
+
+.reviews{
+  color: #8c8c8c;
+}
 
 .cover {
   position: relative;
@@ -23,7 +30,7 @@
   background: #050505;
   color: #fff;
   border: 1px solid #8c8c8c;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-bottom: 185px;
 
 
@@ -57,6 +64,64 @@
 
 
 .cover:hover .imglink {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cover1 {
+  position: relative;
+  height: 100px;
+  width: 500px;
+  padding: 1%;
+  img{
+    margin-bottom: 20px;
+  }
+}
+
+.imgDescription1 {
+  position: absolute;
+  width: 148px;
+  top: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #050505;
+  color: #fff;
+  border: 1px solid #8c8c8c;
+  margin-left: 6px;
+  margin-bottom: 180px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover1:hover .imgDescription1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.imglink1 {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  background: #000;
+  margin-left: 10px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover1:hover .imglink1 {
   visibility: visible;
   opacity: 1;
 }
@@ -115,6 +180,64 @@
 
 
 .cover2:hover .imglink2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cover3 {
+  position: relative;
+  height: 100px;
+  width: 500px;
+  padding: 1.4%;
+  img{
+    margin-bottom: 20px;
+  }
+}
+
+.imgDescription3 {
+  position: absolute;
+  width: 98px;
+  top: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #050505;
+  color: #fff;
+  border: 1px solid #8c8c8c;
+  margin-left: 5px;
+  margin-bottom: 179px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover3:hover .imgDescription3 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.imglink3 {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  background: #000;
+  margin-left: 10px;
+
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.cover3:hover .imglink3 {
   visibility: visible;
   opacity: 1;
 }

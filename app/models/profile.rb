@@ -38,4 +38,12 @@ class Profile < ActiveRecord::Base
     @out
   end
 
+  def is_following?(foll)
+    if foll.user.profile == self
+      true
+    else
+      false
+    end
+  end
+
 end

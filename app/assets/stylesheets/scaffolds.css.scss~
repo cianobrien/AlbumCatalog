@@ -24,6 +24,12 @@ h3{
   color: #8c8c8c;
 }
 
+h4{
+  position: relative;
+  margin-top: -5px;
+  color: #8c8c8c;
+}
+
 pre {
   background-color: #232323;
   color: #8c8c8c;
@@ -42,6 +48,10 @@ div {
     margin-bottom: 10px;
   color: #8c8c8c;
   }
+}
+
+#sidelink a:link { 
+    text-decoration:none; 
 }
 
 #notice {

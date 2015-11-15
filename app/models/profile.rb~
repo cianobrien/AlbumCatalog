@@ -31,15 +31,19 @@ class Profile < ActiveRecord::Base
   def num_following(folls)
     @out = 0
     folls.each do |foll|
-      puts "############"
-      puts foll.user.name
-      puts foll.profile.name
-      puts "###########"
       if foll.user.profile == self
         @out = @out + 1
       end
     end
     @out
+  end
+
+  def is_following(foll)
+    if foll.user.profile == self
+      true
+    else
+      false
+    end
   end
 
 end
